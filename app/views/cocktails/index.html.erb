@@ -1,11 +1,42 @@
-<h1>Cocktails#index</h1>
-
-<div class="container">
-<% @cocktails.each do |cocktail| %>
-  <h5><%= link_to cocktail.name, cocktail_path(cocktail.id) %><h5>
-<hr>
-<% end %>
-
+<div class="banner">
+    <h1>Cocktails</h1>
+      <p>for every occasion</p>
+    <%= link_to "Add Cocktail", new_cocktail_path, class: 'btn btn-flat'%>
+  </div>
 </div>
 
-<%= link_to "Add Cocktail", new_cocktail_path %>
+<div class="text-center my-5">
+    <h1>Cocktails made for creative people</h1>
+    <p>Get the best Cocktail that fits the creative you!</p>
+</div>
+
+
+<div class="cards">
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+      <% @cocktails.sample(6).each do |cocktail| %>
+      <%= link_to cocktail.name, cocktail_path(cocktail.id) %>
+      <% end %>
+  </div>
+</div>
+
+
+<div class="footer text-center my-5" style="height: 80px;">
+ <p>Follow Cocktails</p>
+  <ul class="list-inline">
+    <li>
+      <a href="https://github.com/bfalt" target='_blank'>
+        <i class="fab fa-github-square icon-size"></i>
+        </a>
+      </li>
+    <li>
+      <a href="https://twitter.com/BrandonFalter" target='_blank'>
+        <i class="fab fa-twitter-square icon-size"></i>
+        </a>
+      </li>
+    <li>
+      <a href="https://www.facebook.com/brandonfalter" target='_blank'>
+        <i class="fab fa-facebook-square icon-size"></i>
+      </a>
+    </li>
+  </ul>
+</div>
