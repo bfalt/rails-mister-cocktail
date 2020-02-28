@@ -3,7 +3,9 @@
 <div class="container">
 <% @cocktails.each do |cocktail| %>
   <h5><%= link_to cocktail.name, cocktail_path(cocktail.id) %><h5>
-<% end %>
-</div>
 <hr>
+<% end %>
+
+</div>
+
 <%= link_to "Add Cocktail", new_cocktail_path %>

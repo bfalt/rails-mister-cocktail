@@ -2,4 +2,8 @@
 <p>Find me in app/views/cocktails/show.html.erb</p>
 <p><%= @cocktail.name %></p>
 
+<%= link_to "Add a Dose to this Cocktail", new_cocktail_dose_path(@cocktail) %>
+
 <%= link_to "See all Cocktails", cocktails_path %>
+
+

@@ -1,5 +1,5 @@
 class CocktailsController < ApplicationController
-
+  before_action :set_params, only: :show
   def index
     @cocktails = Cocktail.all
   end
@@ -9,7 +9,7 @@ class CocktailsController < ApplicationController
   end
 
   def create
-    @cocktail = Cocktail.new(set_params)
+    @cocktail = Cocktail.new(cocktail_params)
     if @cocktail.save
       redirect_to cocktail_path(@cocktail.id)
     else
@@ -18,20 +18,17 @@ class CocktailsController < ApplicationController
   end
 
   def show
-    @cocktail = Cocktail.find(params[:id])
+    @doses = @cocktail.doses
+    @ingredients = @cocktail.ingredients
   end
 
-  def edit
-  end
+  private
 
-  def update
-  end
-
-  def destroy
+  def cocktail_params
+    params.require(:cocktail).permit(:name)
   end
 
   def set_params
-    params.require(:cocktail).permit(:name, :description)
+    @cocktail = Cocktail.find(params[:id])
   end
-
 end
